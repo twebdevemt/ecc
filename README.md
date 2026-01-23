@@ -1,6 +1,6 @@
 # Everything Claude Code
 
-[![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
+[![Stars](https://img.shields.io/github/stars/twebdevemt/everything-claude-code?style=flat)](https://github.com/twebdevemt/everything-claude-code/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -180,7 +180,7 @@ The easiest way to use this repo - install as a Claude Code plugin:
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add affaan-m/everything-claude-code
+/plugin marketplace add twebdevemt/everything-claude-code
 
 # Install the plugin
 /plugin install everything-claude-code@everything-claude-code
@@ -194,7 +194,7 @@ Or add directly to your `~/.claude/settings.json`:
     "everything-claude-code": {
       "source": {
         "source": "github",
-        "repo": "affaan-m/everything-claude-code"
+        "repo": "twebdevemt/everything-claude-code"
       }
     }
   },
@@ -214,7 +214,7 @@ If you prefer manual control over what's installed:
 
 ```bash
 # Clone the repo
-git clone https://github.com/affaan-m/everything-claude-code.git
+git clone https://github.com/twebdevemt/everything-claude-code.git
 
 # Copy agents to your Claude config
 cp everything-claude-code/agents/*.md ~/.claude/agents/
@@ -370,7 +370,7 @@ These configs work for my workflow. You should:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/everything-claude-code&type=Date)](https://star-history.com/#affaan-m/everything-claude-code&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=twebdevemt/everything-claude-code&type=Date)](https://star-history.com/#twebdevemt/everything-claude-code&Date)
 
 ---
 
