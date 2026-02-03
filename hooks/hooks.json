@@ -1,17 +1,38 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      { "matcher": "npm|pnpm|yarn|cargo|pytest", "hooks": ["tmux reminder"] },
-      { "matcher": "Write && .md file", "hooks": ["block unless README/CLAUDE"] },
-      { "matcher": "git push", "hooks": ["open editor for review"] }
-    ],
-    "PostToolUse": [
-      { "matcher": "Edit && .ts/.tsx/.js/.jsx", "hooks": ["prettier --write"] },
-      { "matcher": "Edit && .ts/.tsx", "hooks": ["tsc --noEmit"] },
-      { "matcher": "Edit", "hooks": ["grep console.log warning"] }
-    ],
-    "Stop": [
-      { "matcher": "*", "hooks": ["check modified files for console.log"] }
-    ]
-  }
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "npm|pnpm|yarn|cargo|pytest",
+                "hooks": [{ "command": "echo 'Remember to use tmux for long-running commands'" }]
+            },
+            {
+                "matcher": "Write && .md file",
+                "hooks": [{ "command": "echo 'Block unless README/CLAUDE' && exit 1" }]
+            },
+            {
+                "matcher": "git push",
+                "hooks": [{ "command": "${EDITOR:-vi} /dev/tty" }]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Edit && .ts/.tsx/.js/.jsx",
+                "hooks": [{ "command": "prettier --write $CLAUDE_FILE_PATH" }]
+            },
+            {
+                "matcher": "Edit && .ts/.tsx",
+                "hooks": [{ "command": "tsc --noEmit" }]
+            },
+            {
+                "matcher": "Edit",
+                "hooks": [{ "command": "grep -n 'console.log' $CLAUDE_FILE_PATH && echo 'Warning: console.log found'" }]
+            }
+        ],
+        "Stop": [
+            {
+                "matcher": "*",
+                "hooks": [{ "command": "git diff --name-only | xargs grep -l 'console.log' 2>/dev/null && echo 'Warning: console.log in modified files'" }]
+            }
+        ]
+    }
 }

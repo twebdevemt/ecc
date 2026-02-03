@@ -1,27 +1,14 @@
 {
-  "name": "everything-claude-code",
-  "description": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
-  "author": {
-    "name": "twebdevemt",
-    "url": "https://x.com/twebdevemt"
-  },
-  "homepage": "https://github.com/twebdevemt/everything-claude-code",
-  "repository": "https://github.com/twebdevemt/everything-claude-code",
-  "license": "MIT",
-  "keywords": [
-    "claude-code",
-    "agents",
-    "skills",
-    "hooks",
-    "commands",
-    "rules",
-    "tdd",
-    "code-review",
-    "security",
-    "workflow",
-    "automation",
-    "best-practices"
-  ],
-  "commands": "./commands",
-  "skills": "./skills"
+    "name": "ecc",
+    "description": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+    "author": {
+        "name": "twebdevemt",
+        "url": "https://x.com/twebdevemt"
+    },
+    "homepage": "https://github.com/twebdevemt/ecc",
+    "repository": "https://github.com/twebdevemt/ecc",
+    "license": "MIT",
+    "keywords": ["claude-code", "agents", "skills", "hooks", "commands", "rules", "tdd", "code-review", "security", "workflow", "automation", "best-practices"],
+    "commands": "./commands",
+    "skills": "./skills"
 }

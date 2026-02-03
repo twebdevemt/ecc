@@ -1,6 +1,6 @@
 # Everything Claude Code
 
-[![Stars](https://img.shields.io/github/stars/twebdevemt/everything-claude-code?style=flat)](https://github.com/twebdevemt/everything-claude-code/stargazers)
+[![Stars](https://img.shields.io/github/stars/twebdevemt/ecc?style=flat)](https://github.com/twebdevemt/ecc/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -35,14 +35,14 @@ This repo is the raw code only. The guides explain everything.
 </tr>
 </table>
 
-| Topic | What You'll Learn |
-|-------|-------------------|
-| Token Optimization | Model selection, system prompt slimming, background processes |
-| Memory Persistence | Hooks that save/load context across sessions automatically |
-| Continuous Learning | Auto-extract patterns from sessions into reusable skills |
-| Verification Loops | Checkpoint vs continuous evals, grader types, pass@k metrics |
-| Parallelization | Git worktrees, cascade method, when to scale instances |
-| Subagent Orchestration | The context problem, iterative retrieval pattern |
+| Topic                  | What You'll Learn                                             |
+| ---------------------- | ------------------------------------------------------------- |
+| Token Optimization     | Model selection, system prompt slimming, background processes |
+| Memory Persistence     | Hooks that save/load context across sessions automatically    |
+| Continuous Learning    | Auto-extract patterns from sessions into reusable skills      |
+| Verification Loops     | Checkpoint vs continuous evals, grader types, pass@k metrics  |
+| Parallelization        | Git worktrees, cascade method, when to scale instances        |
+| Subagent Orchestration | The context problem, iterative retrieval pattern              |
 
 ---
 
@@ -86,7 +86,7 @@ Or use the `/setup-pm` command in Claude Code.
 This repo is a **Claude Code plugin** - install it directly or copy components manually.
 
 ```
-everything-claude-code/
+ecc/
 |-- .claude-plugin/   # Plugin and marketplace manifests
 |   |-- plugin.json         # Plugin metadata and component paths
 |   |-- marketplace.json    # Marketplace catalog for /plugin marketplace add
@@ -180,27 +180,27 @@ The easiest way to use this repo - install as a Claude Code plugin:
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add twebdevemt/everything-claude-code
+/plugin marketplace add twebdevemt/ecc
 
 # Install the plugin
-/plugin install everything-claude-code@everything-claude-code
+/plugin install ecc@ecc
 ```
 
 Or add directly to your `~/.claude/settings.json`:
 
 ```json
 {
-  "extraKnownMarketplaces": {
-    "everything-claude-code": {
-      "source": {
-        "source": "github",
-        "repo": "twebdevemt/everything-claude-code"
-      }
+    "extraKnownMarketplaces": {
+        "ecc": {
+            "source": {
+                "source": "github",
+                "repo": "twebdevemt/ecc"
+            }
+        }
+    },
+    "enabledPlugins": {
+        "ecc@ecc": true
     }
-  },
-  "enabledPlugins": {
-    "everything-claude-code@everything-claude-code": true
-  }
 }
 ```
 
@@ -214,19 +214,19 @@ If you prefer manual control over what's installed:
 
 ```bash
 # Clone the repo
-git clone https://github.com/twebdevemt/everything-claude-code.git
+git clone https://github.com/twebdevemt/ecc.git
 
 # Copy agents to your Claude config
-cp everything-claude-code/agents/*.md ~/.claude/agents/
+cp ecc/agents/*.md ~/.claude/agents/
 
 # Copy rules
-cp everything-claude-code/rules/*.md ~/.claude/rules/
+cp ecc/rules/*.md ~/.claude/rules/
 
 # Copy commands
-cp everything-claude-code/commands/*.md ~/.claude/commands/
+cp ecc/commands/*.md ~/.claude/commands/
 
 # Copy skills
-cp -r everything-claude-code/skills/* ~/.claude/skills/
+cp -r ecc/skills/* ~/.claude/skills/
 ```
 
 #### Add hooks to settings.json
@@ -278,11 +278,13 @@ Hooks fire on tool events. Example - warn about console.log:
 
 ```json
 {
-  "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx)$\"",
-  "hooks": [{
-    "type": "command",
-    "command": "#!/bin/bash\ngrep -n 'console\\.log' \"$file_path\" && echo '[Hook] Remove console.log' >&2"
-  }]
+    "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx)$\"",
+    "hooks": [
+        {
+            "type": "command",
+            "command": "#!/bin/bash\ngrep -n 'console\\.log' \"$file_path\" && echo '[Hook] Remove console.log' >&2"
+        }
+    ]
 }
 ```
 
@@ -320,6 +322,7 @@ node tests/hooks/hooks.test.js
 **Contributions are welcome and encouraged.**
 
 This repo is meant to be a community resource. If you have:
+
 - Useful agents or skills
 - Clever hooks
 - Better MCP configurations
@@ -352,6 +355,7 @@ These configs are battle-tested across multiple production applications.
 **Critical:** Don't enable all MCPs at once. Your 200k context window can shrink to 70k with too many tools enabled.
 
 Rule of thumb:
+
 - Have 20-30 MCPs configured
 - Keep under 10 enabled per project
 - Under 80 tools active
@@ -361,6 +365,7 @@ Use `disabledMcpServers` in project config to disable unused ones.
 ### Customization
 
 These configs work for my workflow. You should:
+
 1. Start with what resonates
 2. Modify for your stack
 3. Remove what you don't use
@@ -370,7 +375,7 @@ These configs work for my workflow. You should:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=twebdevemt/everything-claude-code&type=Date)](https://star-history.com/#twebdevemt/everything-claude-code&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=twebdevemt/ecc&type=Date)](https://star-history.com/#twebdevemt/ecc&Date)
 
 ---
 
