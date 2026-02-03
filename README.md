@@ -69,10 +69,10 @@ Get up and running in under 2 minutes:
 
 ```bash
 # Add marketplace
-/plugin marketplace add affaan-m/everything-claude-code
+/plugin marketplace add twebdevemt/ecc
 
 # Install plugin
-/plugin install everything-claude-code@everything-claude-code
+/plugin install ecc@ecc
 ```
 
 ### Step 2: Install Rules (Required)
@@ -81,10 +81,10 @@ Get up and running in under 2 minutes:
 
 ```bash
 # Clone the repo first
-git clone https://github.com/affaan-m/everything-claude-code.git
+git clone https://github.com/twebdevemt/ecc.git
 
 # Copy rules (applies to all projects)
-cp -r everything-claude-code/rules/* ~/.claude/rules/
+cp -r ecc/rules/* ~/.claude/rules/
 ```
 
 ### Step 3: Start Using
@@ -94,7 +94,7 @@ cp -r everything-claude-code/rules/* ~/.claude/rules/
 /plan "Add user authentication"
 
 # Check available commands
-/plugin list everything-claude-code@everything-claude-code
+/plugin list ecc@ecc
 ```
 
 ✨ **That's it!** You now have access to 15+ agents, 30+ skills, and 20+ commands.
@@ -272,6 +272,7 @@ For advanced features (10k+ commits, auto-PRs, team sharing):
 ```
 
 Both options create:
+
 - **SKILL.md files** - Ready-to-use skills for Claude Code
 - **Instinct collections** - For continuous-learning-v2
 - **Pattern extraction** - Learns from your commit history
@@ -300,6 +301,7 @@ See `skills/continuous-learning-v2/` for full documentation.
 This plugin requires Claude Code CLI v2.1.0+ due to changes in how the plugin system handles hooks.
 
 Check your version:
+
 ```bash
 claude --version
 ```
@@ -356,14 +358,14 @@ This gives you instant access to all commands, agents, skills, and hooks.
 >
 > ```bash
 > # Clone the repo first
-> git clone https://github.com/affaan-m/everything-claude-code.git
+> git clone https://github.com/twebdevemt/ecc.git
 >
 > # Option A: User-level rules (applies to all projects)
-> cp -r everything-claude-code/rules/* ~/.claude/rules/
+> cp -r ecc/rules/* ~/.claude/rules/
 >
 > # Option B: Project-level rules (applies to current project only)
 > mkdir -p .claude/rules
-> cp -r everything-claude-code/rules/* .claude/rules/
+> cp -r ecc/rules/* .claude/rules/
 > ```
 
 ---
