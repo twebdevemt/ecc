@@ -1,5 +1,6 @@
 # List of Additional Third Party Skills
 
+```bash
 npx skills add https://github.com/vercel-labs/agent-skills --skill react-best-practices
 npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines
 
@@ -51,3 +52,4 @@ npx skills add https://github.com/coreyhaines31/marketingskills --skill schema-m
 npx skills add https://github.com/coreyhaines31/marketingskills --skill seo-audit
 npx skills add https://github.com/coreyhaines31/marketingskills --skill signup-flow-cro
 npx skills add https://github.com/coreyhaines31/marketingskills --skill social-content
+```
