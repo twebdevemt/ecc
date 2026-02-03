@@ -65,7 +65,7 @@ Execute the full git autopush workflow:
 
 7. **Merge the pull request**
     ```bash
-    gh pr merge --squash --delete-branch
+    gh pr merge
     ```
 
 ## Handling Merge Conflicts
