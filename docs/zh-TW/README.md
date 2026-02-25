@@ -13,7 +13,7 @@
 
 **🌐 Language / 语言 / 語言**
 
-[**English**](../../README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](README.md)
+[**English**](../../README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](README.md) | [日本語](../../docs/ja-JP/README.md)
 
 </div>
 
@@ -464,7 +464,7 @@ node tests/hooks/hooks.test.js
 - **完整指南（進階）：** [Everything Claude Code 完整指南](https://x.com/affaanmustafa/status/2014040193557471352)
 - **追蹤：** [@affaanmustafa](https://x.com/affaanmustafa)
 - **zenith.chat：** [zenith.chat](https://zenith.chat)
-- **技能目錄：** [awesome-agent-skills](https://github.com/JackyST0/awesome-agent-skills)
+- **技能目錄：** awesome-agent-skills（社區維護的智能體技能目錄）
 
 ---
 

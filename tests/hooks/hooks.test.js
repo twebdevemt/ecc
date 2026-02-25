@@ -96,14 +96,14 @@ async function runTests() {
         passed++;
     else failed++;
 
-    if (
-        await asyncTest("outputs session info to stderr", async () => {
-            const result = await runScript(path.join(scriptsDir, "session-start.js"));
-            assert.ok(result.stderr.includes("[SessionStart]") || result.stderr.includes("Package manager"), "Should output session info");
-        })
-    )
-        passed++;
-    else failed++;
+  if (await asyncTest('outputs session info to stderr', async () => {
+    const result = await runScript(path.join(scriptsDir, 'session-start.js'));
+    assert.ok(
+      result.stderr.includes('[SessionStart]') ||
+      result.stderr.includes('Package manager'),
+      'Should output session info'
+    );
+  })) passed++; else failed++;
 
     // session-end.js tests
     console.log("\nsession-end.js:");
@@ -184,15 +184,11 @@ async function runTests() {
         passed++;
     else failed++;
 
-    if (
-        await asyncTest("creates compaction log", async () => {
-            await runScript(path.join(scriptsDir, "pre-compact.js"));
-            const logFile = path.join(os.homedir(), ".claude", "sessions", "compaction-log.txt");
-            assert.ok(fs.existsSync(logFile), "Compaction log should exist");
-        })
-    )
-        passed++;
-    else failed++;
+  if (await asyncTest('creates compaction log', async () => {
+    await runScript(path.join(scriptsDir, 'pre-compact.js'));
+    const logFile = path.join(os.homedir(), '.claude', 'sessions', 'compaction-log.txt');
+    assert.ok(fs.existsSync(logFile), 'Compaction log should exist');
+  })) passed++; else failed++;
 
     // suggest-compact.js tests
     console.log("\nsuggest-compact.js:");
@@ -246,12 +242,9 @@ async function runTests() {
 
             assert.ok(result.stderr.includes("50 tool calls reached"), "Should suggest compact at threshold");
 
-            // Cleanup
-            fs.unlinkSync(counterFile);
-        })
-    )
-        passed++;
-    else failed++;
+    // Cleanup
+    fs.unlinkSync(counterFile);
+  })) passed++; else failed++;
 
     // evaluate-session.js tests
     console.log("\nevaluate-session.js:");
@@ -274,9 +267,9 @@ async function runTests() {
             const transcript = Array(5).fill('{"type":"user","content":"test"}\n').join("");
             fs.writeFileSync(transcriptPath, transcript);
 
-            const result = await runScript(path.join(scriptsDir, "evaluate-session.js"), "", {
-                CLAUDE_TRANSCRIPT_PATH: transcriptPath
-            });
+    const result = await runScript(path.join(scriptsDir, 'evaluate-session.js'), '', {
+      CLAUDE_TRANSCRIPT_PATH: transcriptPath
+    });
 
             assert.ok(result.stderr.includes("Session too short"), "Should indicate session is too short");
 
@@ -295,17 +288,14 @@ async function runTests() {
             const transcript = Array(15).fill('{"type":"user","content":"test"}\n').join("");
             fs.writeFileSync(transcriptPath, transcript);
 
-            const result = await runScript(path.join(scriptsDir, "evaluate-session.js"), "", {
-                CLAUDE_TRANSCRIPT_PATH: transcriptPath
-            });
+    const result = await runScript(path.join(scriptsDir, 'evaluate-session.js'), '', {
+      CLAUDE_TRANSCRIPT_PATH: transcriptPath
+    });
 
             assert.ok(result.stderr.includes("15 messages"), "Should report message count");
 
-            cleanupTestDir(testDir);
-        })
-    )
-        passed++;
-    else failed++;
+    cleanupTestDir(testDir);
+  })) passed++; else failed++;
 
     // hooks.json validation
     console.log("\nhooks.json Validation:");
@@ -325,15 +315,12 @@ async function runTests() {
             const hooksPath = path.join(__dirname, "..", "..", "hooks", "hooks.json");
             const hooks = JSON.parse(fs.readFileSync(hooksPath, "utf8"));
 
-            assert.ok(hooks.hooks.PreToolUse, "Should have PreToolUse hooks");
-            assert.ok(hooks.hooks.PostToolUse, "Should have PostToolUse hooks");
-            assert.ok(hooks.hooks.SessionStart, "Should have SessionStart hooks");
-            assert.ok(hooks.hooks.Stop, "Should have Stop hooks");
-            assert.ok(hooks.hooks.PreCompact, "Should have PreCompact hooks");
-        })
-    )
-        passed++;
-    else failed++;
+    assert.ok(hooks.hooks.PreToolUse, 'Should have PreToolUse hooks');
+    assert.ok(hooks.hooks.PostToolUse, 'Should have PostToolUse hooks');
+    assert.ok(hooks.hooks.SessionStart, 'Should have SessionStart hooks');
+    assert.ok(hooks.hooks.Stop, 'Should have Stop hooks');
+    assert.ok(hooks.hooks.PreCompact, 'Should have PreCompact hooks');
+  })) passed++; else failed++;
 
     if (
         test("all hook commands use node", () => {
@@ -394,11 +381,11 @@ async function runTests() {
             const pluginPath = path.join(__dirname, "..", "..", ".claude-plugin", "plugin.json");
             const plugin = JSON.parse(fs.readFileSync(pluginPath, "utf8"));
 
-            assert.ok(!plugin.hooks, 'plugin.json should NOT have "hooks" field - Claude Code auto-loads hooks/hooks.json');
-        })
-    )
-        passed++;
-    else failed++;
+    assert.ok(
+      !plugin.hooks,
+      'plugin.json should NOT have "hooks" field - Claude Code auto-loads hooks/hooks.json'
+    );
+  })) passed++; else failed++;
 
     // Summary
     console.log("\n=== Test Results ===");
