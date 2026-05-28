@@ -80,6 +80,9 @@ claude plugin install typescript-lsp@claude-plugins-official
 - `posthog`
 - `coderabbit`
 
+**Codebase Understanding**
+- Marketplace: `Lum1104/Understand-Anything` | Plugin: `understand-anything`
+
 **General**
 
 - `accessibility-compliance`
