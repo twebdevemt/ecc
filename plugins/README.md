@@ -80,6 +80,12 @@ claude plugin install typescript-lsp@claude-plugins-official
 - `posthog`
 - `coderabbit`
 
+**Web Standards**
+- Marketplace: `GoogleChrome/modern-web-guidance` | Plugin: `modern-web-guidance@googlechrome`
+
+**CLAUDE.md Customization**
+- Marketplace: `thiagomontezuma/karpathy-automatic-claude-md-plugin` | Plugin: `karpathy-automatic-claude-md-plugin`
+
 **Codebase Understanding**
 - Marketplace: `Lum1104/Understand-Anything` | Plugin: `understand-anything`
 
